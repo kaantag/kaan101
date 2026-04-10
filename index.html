@@ -3,67 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>101 Okey KaaN</title>
+    <title>101 Okey Plus - KaaN</title>
     <style>
-        body { 
-            background: radial-gradient(circle, #0a5c24 0%, #053314 100%); 
-            color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; padding: 0; overflow: hidden; height: 100vh;
-        }
-        .masa { 
-            height: 100vh; display: flex; flex-direction: column; 
-            justify-content: space-between; align-items: center; padding: 15px; box-sizing: border-box;
-        }
-        .okey-alani {
-            background: rgba(0,0,0,0.2); border-radius: 50%; width: 120px; height: 120px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border: 2px solid rgba(255,255,255,0.1); margin-top: 20%;
-        }
-        .istaka-container {
-            width: 100%; max-width: 400px; background: #3d2005;
-            padding: 15px 10px; border-radius: 20px 20px 10px 10px;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.5); border-top: 3px solid #5a320a;
-        }
-        .istaka { 
-            display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px;
-        }
-        .tas { 
-            background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%);
-            color: #000; border-radius: 6px; font-weight: bold; 
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px; height: 50px;
-            box-shadow: 0 3px 0 #b0b0b0, inset 0 1px 0 #fff;
-            position: relative;
-        }
-        /* Renkler */
-        .kirmizi { color: #e63946; }
-        .mavi { color: #1d3557; }
-        .siyah { color: #000000; }
-        .sari { color: #ffb703; }
-        
-        .tas::after {
-            content: ''; position: absolute; bottom: 5px; width: 60%; height: 2px;
-            background: rgba(0,0,0,0.05); border-radius: 2px;
-        }
+        body { margin: 0; background-color: #0b2b40; font-family: Arial; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+        .masa { flex: 1; background-color: #1a4d6b; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px; position: relative; display: flex; justify-content: center; align-items: center; }
+        .istaka-alani { height: 180px; background: linear-gradient(to bottom, #8b5a2b, #4d2f14); border-top: 4px solid #3d2610; padding: 15px 5px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 -10px 30px rgba(0,0,0,0.6); }
+        .istaka-sirasi { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; justify-items: center; }
+        .tas { width: 30px; height: 42px; background: #fdfdfd; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3), inset 0 -3px 0 #ddd; color: #222; }
+        .mavi { color: #1e88e5; } .kirmizi { color: #e53935; } .siyah { color: #212121; } .sari { color: #ffb300; }
+        .orta-panel { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); color: white; text-align: center; }
     </style>
 </head>
 <body>
     <div class="masa">
-        <div style="font-weight: bold; text-shadow: 1px 1px 2px #000;">🀄 101 OKEY KaaN</div>
-        
-        <div class="okey-alani">
-            <span style="font-size: 12px; opacity: 0.8;">OKEY</span>
-            <div style="font-size: 30px;">🔵5</div>
+        <div class="orta-panel">
+            <div style="font-size: 10px; opacity: 0.8;">OKEY</div>
+            <div class="tas mavi" style="margin: 5px auto;">10</div>
         </div>
-
-        <div class="istaka-container">
-            <div class="istaka">
-                <div class="tas kirmizi">1</div><div class="tas kirmizi">2</div><div class="tas kirmizi">3</div>
-                <div class="tas mavi">11</div><div class="tas siyah">13</div><div class="tas sari">5</div>
-                <div class="tas">🃏</div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div>
-                </div>
+    </div>
+    <div class="istaka-alani">
+        <div class="istaka-sirasi">
+            <div class="tas kirmizi">1</div><div class="tas kirmizi">2</div><div class="tas kirmizi">3</div>
+            <div class="tas mavi">11</div><div class="tas siyah">13</div><div class="tas sari">5</div>
+            <div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div>
+        </div>
+        <div class="istaka-sirasi">
+            <div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div><div class="tas"></div>
         </div>
     </div>
 </body>
-    </html>
-    
+</html>
