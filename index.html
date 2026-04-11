@@ -5,38 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>101 Okey - KaaN</title>
     <style>
-        body { margin: 0; background: #0b2b40; font-family: 'Segoe UI', Arial; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+        body { margin: 0; background: #0b2b40; font-family: Arial; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
         
-        /* Masa Tasarımı - Koyu Gradyan */
-        .masa { flex: 1; background: radial-gradient(circle, #236185 0%, #1a4d6b 100%); position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid rgba(0,0,0,0.3); }
+        /* Üst Masa Alanı - Boyutu küçülttük ki ıstaka üste çıksın */
+        .masa { height: 45%; background: radial-gradient(circle, #236185 0%, #1a4d6b 100%); position: relative; display: flex; align-items: center; justify-content: center; }
         
-        /* Okey Gösterge Paneli */
-        .orta-panel { background: rgba(0,0,0,0.4); padding: 8px 15px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); color: white; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .orta-panel { background: rgba(0,0,0,0.4); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; flex-direction: column; align-items: center; }
         
-        /* Istaka - Ahşap Görünümü */
-        .istaka-alani { height: 150px; background: linear-gradient(to bottom, #7d4e24 0%, #4a2c11 100%); padding: 12px 5px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 -8px 25px rgba(0,0,0,0.6); position: relative; }
+        /* Istaka Alanı - Yüksekliği sabitledik */
+        .istaka-alani { height: 55%; background: linear-gradient(to bottom, #7d4e24 0%, #4a2c11 100%); display: flex; flex-direction: column; justify-content: center; gap: 5px; padding: 0 5px; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); }
         
-        .istaka-sirasi { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; max-width: 480px; margin: 0 auto; width: 98%; }
+        .istaka-sirasi { display: grid; grid-template-columns: repeat(11, 1fr); gap: 2px; width: 100%; max-width: 400px; margin: 0 auto; }
         
-        /* Taş Tasarımı - Daha Kibar ve Gölgeleme */
-        .tas { width: 32px; height: 44px; background: #fefefe; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; box-shadow: 1px 1px 3px rgba(0,0,0,0.5), inset 0 -3px 0 #d1d1d1; transition: transform 0.1s; }
+        /* Taş Boyutları - Küçülterek ekrana sığdırdık */
+        .tas { width: 28px; height: 38px; background: #fefefe; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 15px; box-shadow: 1px 1px 2px rgba(0,0,0,0.4), inset 0 -2px 0 #ccc; }
         
-        /* Renkler */
         .kirmizi { color: #d32f2f; } .mavi { color: #1976d2; } .siyah { color: #212121; } .sari { color: #fbc02d; }
-        .bos { background: rgba(255,255,255,0.05); box-shadow: none; border: 1px dashed rgba(255,255,255,0.1); }
+        .bos { background: rgba(0,0,0,0.1); box-shadow: none; border: 1px dashed rgba(255,255,255,0.1); }
 
-        .btn-grup { position: absolute; right: 10px; top: -50px; display: flex; gap: 5px; }
-        .btn { background: #ff9800; border: none; color: white; padding: 5px 12px; border-radius: 15px; font-size: 11px; font-weight: bold; box-shadow: 0 3px 0 #e68a00; }
+        .btn-grup { position: absolute; right: 5px; top: 10px; display: flex; flex-direction: column; gap: 4px; }
+        .btn { background: #ff9800; border: none; color: white; padding: 4px 8px; border-radius: 10px; font-size: 9px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="masa">
-        <div class="btn-grup">
-            <button class="btn">DİZ</button>
-            <button class="btn">SERİ AÇ</button>
-        </div>
+        <div class="btn-grup"><button class="btn">DİZ</button><button class="btn">SERİ</button></div>
         <div class="orta-panel">
-            <span style="font-size: 9px; letter-spacing: 1px; margin-bottom: 2px;">GÖSTERGE</span>
+            <span style="font-size: 8px; margin-bottom: 2px;">GÖSTERGE</span>
             <div class="tas mavi">10</div>
         </div>
     </div>
@@ -51,25 +46,21 @@
             const hash = window.location.hash;
             if (hash && hash.includes("d=")) {
                 try {
-                    const base64Data = hash.split("d=")[1];
-                    const el = JSON.parse(atob(base64Data));
+                    const el = JSON.parse(atob(hash.split("d=")[1]));
                     const ust = document.getElementById('ust-sira');
                     const alt = document.getElementById('alt-sira');
                     ust.innerHTML = ""; alt.innerHTML = "";
-
                     const renkler = {'k': 'kirmizi', 'm': 'mavi', 's': 'siyah', 'y': 'sari'};
 
-                    el.forEach((tas, i) => {
+                    for(let j=0; j<22; j++) {
                         const d = document.createElement('div');
-                        d.className = `tas ${renkler[tas.r]}`;
-                        d.innerText = tas.s;
-                        if (i < 11) ust.appendChild(d); else alt.appendChild(d);
-                    });
-                    
-                    // Boş kalan yerleri doldur
-                    for(let j=el.length; j<22; j++){
-                        const b = document.createElement('div'); b.className = "tas bos";
-                        if (j < 11) ust.appendChild(b); else alt.appendChild(b);
+                        if (el[j]) {
+                            d.className = `tas ${renkler[el[j].r]}`;
+                            d.innerText = el[j].s;
+                        } else {
+                            d.className = "tas bos";
+                        }
+                        if (j < 11) ust.appendChild(d); else alt.appendChild(d);
                     }
                 } catch (e) { console.error(e); }
             }
